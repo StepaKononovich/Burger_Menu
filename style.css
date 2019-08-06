@@ -1,0 +1,166 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.list {
+ width: 100%;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.list a {
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  display: inline-block;
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 800;
+  height: 40px;
+  line-height: 40px;
+}
+
+.list a:before {
+	content: "";
+	opacity: 0;
+	width: 100%;
+	height: 2px;
+	background-color: rgb(73, 67, 67);
+	position: absolute;
+	bottom: 0;
+	transition: 0.2s;
+}
+
+.list a:hover:before {
+	opacity: 1;
+}
+
+.burger__menu {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	width: 100%;
+	background-color: black;
+	padding: 0px;
+}
+
+.burger {
+	display: none;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	transition: 0.2s;
+}
+
+.burger:hover {
+	opacity: 0.5;
+}
+
+.burger_line, 
+.burger_line::after,
+.burger_line::before {
+	display: block;
+	position: absolute;
+	width: 27px;
+	height: 3px;
+	background-color: white;
+	top: 45%;
+	left: 15%;
+	transition: 0.3s;
+}
+
+.burger_line::after {
+	content: "";
+	left: 0;
+	top: 6px;
+}
+
+.burger_line::before {
+	content: "";
+	left: 0;
+	top: -6px;
+}
+
+@media (max-width: 600px) {
+
+	.burger {
+		display: block;
+	}
+
+	.list {
+		flex-direction: column;	
+		position: relative;
+		display: block;
+		width: 100%;
+		transition: 0.5s;
+		height: 0;
+	   }
+	
+	.link {
+		display: block;
+		color: black;
+		width: 100%;
+		text-align: center;
+		background-color: grey;
+		border-bottom: 2px solid black;	
+		position: absolute; 
+		left: -100%;
+		transition: left 0.4s, box-shadow 0.1s;
+	}
+
+	.menu_activ {
+		left: 0%;
+	}
+
+	.list a:hover:before {
+		opacity: 0;
+	}
+
+	.list a:hover {
+		Color: white;
+		font-size: 22px; 
+		box-shadow: inset 0px 0px 30px black;
+	}
+
+	.burger__menu {
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+		 
+	}	
+
+	.burger_menu_acriv .burger_line {
+		background: transparent;
+	}
+
+	.burger_menu_acriv .burger_line::after {
+		transform: rotate(45deg);
+		top: 0%;
+	}
+
+	.burger_menu_acriv .burger_line::before {
+		transform: rotate(-45deg);
+		top: 0%;
+		
+	}
+	
+	.burger:hover {
+		opacity: 1;
+	}
+
+	.burger_menu_acriv:hover .burger_line::before,
+	.burger_menu_acriv:hover .burger_line::after,
+	.burger_menu_acriv:hover .burger {
+		background-color: red;
+		transition: 0.1s;
+		box-shadow: 0px 0px 5px 0.5px red;
+	}
+
+
+}
